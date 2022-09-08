@@ -1,16 +1,30 @@
-using System.Collections;
 using UnityEngine;
 
 public class MouseAiming : MonoBehaviour
 {
-    void Update()
-    {
-        Vector2 mousePos = Input.mousePosition;
-        Vector2 worldPos;
+    public float maxMoveSpeed = 10;
+    public float smoothTime = 0.3f;
+    Vector2 currentVel;
 
-        mousePos.z = Camera.main.nearClipPlane;
-        worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+    public Texture2D cursorTexture;
+
+    void Start()
+    {
+        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto); 
     }
 
-}
+    void Update()
+    {
+        Vector3 mousePos = Input.mousePosition;
+
+        mousePos.z = Camera.main.transform.position.z + Camera.main.nearClipPlane;
+        transform.position = mousePos;
+    }
+
+    private void FixedUpdate()
+    {
+        Vector2 newPos = Vector2.SmoothDamp(Vector2 currentPos,
+            Vector2 targetPos, ref Vector2 currentVel, float smoothTime, float maxMoveSpeed);
+    }
+
 }
