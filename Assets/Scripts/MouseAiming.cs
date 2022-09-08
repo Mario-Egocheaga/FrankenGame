@@ -21,10 +21,4 @@ public class MouseAiming : MonoBehaviour
         transform.position = mousePos;
     }
 
-    private void FixedUpdate()
-    {
-        Vector2 newPos = Vector2.SmoothDamp(Vector2 currentPos,
-            Vector2 targetPos, ref Vector2 currentVel, float smoothTime, float maxMoveSpeed);
-    }
-
 }
