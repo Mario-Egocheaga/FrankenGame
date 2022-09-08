@@ -15,7 +15,7 @@ public class Condition : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Orb")
+        if (collision.tag == "Condition")
         {
             inArea = true;
         }
