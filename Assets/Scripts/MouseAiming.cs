@@ -10,7 +10,7 @@ public class MouseAiming : MonoBehaviour
 
     void Start()
     {
-        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto); 
+        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
     }
 
     void Update()
@@ -19,6 +19,6 @@ public class MouseAiming : MonoBehaviour
 
         mousePos.z = Camera.main.transform.position.z + Camera.main.nearClipPlane;
         transform.position = mousePos;
-    }
 
+    }
 }

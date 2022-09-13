@@ -2,16 +2,7 @@ using UnityEngine;
 
 public class Condition : MonoBehaviour
 {
-    public bool inArea;
-    public GameObject prefab;
-
-    void Update()
-    {
-        if (inArea && Input.GetKeyDown(KeyCode.Space))
-        {
-            Instantiate(prefab, gameObject.transform.position, Quaternion.identity);
-        }
-    }
+    public static bool inArea = false;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
